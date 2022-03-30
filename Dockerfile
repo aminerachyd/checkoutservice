@@ -49,7 +49,6 @@ FROM registry.access.redhat.com/ubi8/go-toolset:1.16.12-7
 WORKDIR /opt/app-root/src
 
 COPY --from=builder /go/bin/checkoutservice checkoutservice
-COPY products.json .
 
 ENV APP_PORT=3550
 
