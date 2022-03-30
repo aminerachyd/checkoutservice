@@ -70,6 +70,18 @@ spec:
               value: {{ printf "%s:80" (index .Values.connectsTo 0) | quote }}
             - name: PORT
               value: {{ .Values.image.port | quote}}
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: {{.Values.image.productcatalogserviceaddr | quote}}
+            - name: SHIPPING_SERVICE_ADDR
+              value: {{.Values.image.shippingserviceaddr | quote}}
+            - name: PAYMENT_SERVICE_ADDR
+              value: {{.Values.image.paymentserviceaddr | quote}}
+            - name: EMAIL_SERVICE_ADDR
+              value: {{.Values.image.emailserviceaddr | quote}}
+            - name: CURRENCY_SERVICE_ADDR
+              value: {{.Values.image.currencyserviceaddr | quote}}
+            - name: CART_SERVICE_ADDR
+              value: {{.Values.image.cartserviceaddr | quote}}
             - name: DISABLE_TRACING
               value: "1"
             - name: DISABLE_PROFILER
