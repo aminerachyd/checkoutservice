@@ -14,7 +14,7 @@ image:
   productcatalogserviceaddr: "productcatalogservice:3550"
   shippingserviceaddr: "shippingservice:50051"
   paymentserviceaddr: "paymentservice:50051"
-  emailserviceaddr: "emailservice:5000"
+  emailserviceaddr: "emailservice:8080"
   currencyserviceaddr: "currencyservice:7000"
   cartserviceaddr: "cartservice:7070"
 
