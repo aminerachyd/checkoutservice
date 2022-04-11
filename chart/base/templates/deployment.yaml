@@ -7,9 +7,6 @@ metadata:
     app.openshift.io/vcs-ref: {{ .Values.vcsInfo.branch }}
     app.openshift.io/vcs-uri: {{ trimSuffix ".git" .Values.vcsInfo.repoUrl }}
   {{- end }}
-  {{- if .Values.connectsTo }}
-    app.openshift.io/connects-to: {{ printf "'[%s]'" (include "helm-toolkit.utils.joinListWithCommaAndDoubleQuotes" .Values.connectsTo)  }}
-  {{- end }}
   labels:
     app.kubernetes.io/name: {{ include "starter-kit.name" . }}
     app: {{ include "starter-kit.name" . }}
@@ -65,9 +62,6 @@ spec:
                   fieldPath: metadata.name
             - name: LOG_LEVEL
               value: {{ .Values.logLevel | quote }}
-            {{- if .Values.connectsTo }}
-            - name: SERVICE_URL
-              value: {{ printf "%s:80" (index .Values.connectsTo 0) | quote }}
             - name: PORT
               value: {{ .Values.image.port | quote}}
             - name: PRODUCT_CATALOG_SERVICE_ADDR
@@ -88,7 +82,6 @@ spec:
               value: "1"
             - name: DISABLE_DEBUGGER
               value: "1"
-            {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ default "jaeger-config" .Values.jaegerConfigName }}

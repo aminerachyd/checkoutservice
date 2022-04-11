@@ -49,12 +49,9 @@ vcsInfo:
   repoUrl: ""
   branch: ""
 
-partOf: inventory
+partOf: multicloud-demo
 
-connectsTo:
-  - inventory-management-svc-solution
-
-runtime: go
+runtime: golang
 
 serviceMesh:
   sidecar: true
