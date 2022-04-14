@@ -6,7 +6,7 @@ metadata:
   {{- if and .Values.vcsInfo.repoUrl .Values.vcsInfo.branch }}
     app.openshift.io/vcs-ref: {{ .Values.vcsInfo.branch }}
     app.openshift.io/vcs-uri: {{ trimSuffix ".git" .Values.vcsInfo.repoUrl }}
-    skupper.io/proxy: "http"
+    skupper.io/proxy: "tcp"
     skupper.io/port: {{ .Values.image.port | quote }}
   {{- end }}
   labels:
