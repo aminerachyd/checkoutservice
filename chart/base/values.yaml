@@ -22,7 +22,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
-  enabled: false
+  enabled: true
   type: ClusterIP
   port: 5050
 
