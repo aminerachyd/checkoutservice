@@ -29,4 +29,3 @@ metadata:
     app: {{ include "starter-kit.fullname" . }}
   name: {{ include "starter-kit.fullname" . }}
 {{- end -}}
-{{- end -}}
