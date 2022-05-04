@@ -69,17 +69,17 @@ spec:
             - name: PORT
               value: {{ .Values.image.port | quote}}
             - name: PRODUCT_CATALOG_SERVICE_ADDR
-              value: {{.Values.image.productcatalogserviceaddr | quote}}
+              value: "{{ .Values.image.productcatalogservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.productcatalogservice.port }}"
             - name: SHIPPING_SERVICE_ADDR
-              value: {{.Values.image.shippingserviceaddr | quote}}
+              value: "{{ .Values.image.shippingservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.shippingservice.port }}"
             - name: PAYMENT_SERVICE_ADDR
-              value: {{.Values.image.paymentserviceaddr | quote}}
+              value: "{{ .Values.image.paymentservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.paymentservice.port }}"
             - name: EMAIL_SERVICE_ADDR
-              value: {{.Values.image.emailserviceaddr | quote}}
+              value: "{{ .Values.image.emailservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.emailservice.port }}"
             - name: CURRENCY_SERVICE_ADDR
-              value: {{.Values.image.currencyserviceaddr | quote}}
+              value: "{{ .Values.image.currencyservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.currencyservice.port }}"
             - name: CART_SERVICE_ADDR
-              value: {{.Values.image.cartserviceaddr | quote}}
+              value: "{{ .Values.image.cartservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.cartservice.port }}"
             - name: DISABLE_TRACING
               value: "1"
             - name: DISABLE_PROFILER

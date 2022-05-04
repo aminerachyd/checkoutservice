@@ -3,6 +3,8 @@
 # Declare variables to be passed into your templates.
 global: {}
 
+namespaceToDeploy: "multiarch-demo-test"
+
 replicaCount: 1
 logLevel: "debug"
 
@@ -11,12 +13,24 @@ image:
   tag: replace
   pullPolicy: IfNotPresent
   port: 5050
-  productcatalogserviceaddr: "productcatalogservice:3550"
-  shippingserviceaddr: "shippingservice:50051"
-  paymentserviceaddr: "paymentservice:50051"
-  emailserviceaddr: "emailservice:8080"
-  currencyserviceaddr: "currencyservice:7000"
-  cartserviceaddr: "cartservice:7070"
+  productcatalogservice:
+    svcName: "productcatalogservice"
+    port: 3550
+  shippingservice:
+    svcName: "shippingservice"
+    port: 50051
+  paymentservice:
+    svcName: "paymentservice"
+    port: 50051
+  emailservice:
+    svcName: "emailservice"
+    port: 8080
+  currencyservice:
+    svcName: "currencyservice"
+    port: 7000
+  cartservice:
+    svcName: "cartservice"
+    port: 7070
 
 nameOverride: ""
 fullnameOverride: ""
