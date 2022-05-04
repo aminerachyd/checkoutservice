@@ -40,6 +40,9 @@ service:
   type: ClusterIP
   port: 5050
 
+submariner:
+  enabled: true
+
 route:
   enabled: false
 

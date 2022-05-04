@@ -21,11 +21,12 @@ spec:
     app.kubernetes.io/instance: {{ include "starter-kit.name" . }}
 {{- end -}}
 ---
-{{- if .Values.service.enabled -}}
+{{- if .Values.submariner.enabled -}}
 apiVersion: multicluster.x-k8s.io/v1alpha1
 kind: ServiceExport
 metadata:
   labels:
     app: {{ include "starter-kit.fullname" . }}
   name: {{ include "starter-kit.fullname" . }}
+{{- end -}}
 {{- end -}}
