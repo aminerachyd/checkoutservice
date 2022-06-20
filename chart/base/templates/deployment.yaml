@@ -69,17 +69,41 @@ spec:
             - name: PORT
               value: {{ .Values.image.port | quote}}
             - name: PRODUCT_CATALOG_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.productcatalogservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.productcatalogservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.productcatalogservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.productcatalogservice.port }}"
+              {{- end }}
             - name: SHIPPING_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.shippingservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.shippingservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.shippingservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.shippingservice.port }}"
+              {{- end }}
             - name: PAYMENT_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.paymentservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.paymentservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.paymentservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.paymentservice.port }}"
+              {{- end }}
             - name: EMAIL_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.emailservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.emailservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.emailservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.emailservice.port }}"
+              {{- end }}
             - name: CURRENCY_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.currencyservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.currencyservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.currencyservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.currencyservice.port }}"
+              {{- end }}
             - name: CART_SERVICE_ADDR
+              {{- if .Values.submariner.enabled }}
               value: "{{ .Values.image.cartservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.clusterset.local:{{ .Values.image.cartservice.port }}"
+              {{- else }}
+              value: "{{ .Values.image.cartservice.svcName }}.{{ .Values.namespaceToDeploy }}.svc.cluster.local:{{ .Values.image.cartservice.port }}"
+              {{- end }}
             - name: DISABLE_TRACING
               value: "1"
             - name: DISABLE_PROFILER
